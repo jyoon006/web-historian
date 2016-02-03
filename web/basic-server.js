@@ -3,8 +3,6 @@ var httpRequest = require("http-request");
 var handler = require("./request-handler");
 var initialize = require("./initialize.js");
 
-// Why do you think we have this here?
-// HINT: It has to do with what's in .gitignore
 initialize();
 
 var port = 8080;
