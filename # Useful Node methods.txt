@@ -9,6 +9,7 @@ http
     .method (GET/POST/PUT/DELETE)
     .statusCode
     .url 
+    .on('data', cb)
 
   .response (instance of http.ServerResponse)
     .writeHead(statusCode, headerProperties)
