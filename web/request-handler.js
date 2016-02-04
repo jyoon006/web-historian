@@ -11,22 +11,28 @@ var headers = {
 };
 
 
-exports.handleRequest = function (request, response) {
-  if(request.method === 'GET'){
 
+exports.handleRequest = function (request, response) {
+ var pathName = url.parse(request.url).pathname.split('/');
+
+  if(request.method === 'GET'){
+// localhost:3030/www.google.com
     if(request.url === '/'){
       fs.readFile('public/index.html', function(error, html){
-        if(error){
-          throw error;
-        }
         response.writeHead(200, headers);
         response.end(html);
       });
+    }else if(pathName[1]){
+        response.writeHead(200, headers);
+        response.end(pathName[1]);
     }
+    //else{
+    //   //gonna comment this to commit
+    //   // 404 not found
+    // }
     else{
       response.end();
     }
-    
   }
 
 
