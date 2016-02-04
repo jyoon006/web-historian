@@ -1,0 +1,38 @@
+# Useful Node methods:
+
+http
+  .createServer(requestHandler)
+    .listen(port, ip)
+
+  .request (instance of http.IncomingMessage)
+    .headers
+    .method (GET/POST/PUT/DELETE)
+    .statusCode
+    .url 
+
+  .response (instance of http.ServerResponse)
+    .writeHead(statusCode, headerProperties)
+    .end()
+
+url
+  .parse(request.url)
+    .href
+    .search
+    .query
+    .pathname
+
+path
+  .parse(pathString)
+    .root : '/'
+    .dir  : '/home/user/dir'
+    .base  : 'file.txt'
+    .ext  : '.txt'
+    .name  : 'file' 
+
+  .join(path1, path2, path 3, etc.)
+
+fs
+  .read()
+  .write()
+  .readFile(path/fileName, cb(error, data){})
+  .writeFile(fileName, dataAsStringOrBuffer,cb)
