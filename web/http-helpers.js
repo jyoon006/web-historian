@@ -19,7 +19,8 @@ exports.serveAssets = function(res, asset, callback) {
     // JS, etc.
 };
 
-exports.send404 = function(response){
-  response.writeHead(404);
-  response.end();
-};
+exports.sendResponse = function(response, obj, status) {
+  status = status || 200;
+  response.writeHead(status, headers);
+  response.end(obj);
+}

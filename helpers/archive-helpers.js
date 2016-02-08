@@ -49,14 +49,6 @@ exports.isUrlValid = function(url){
   }
 };
 
-// Take sites.txt, convert to array, return it.
-// exports.readListOfUrls = function(list){
-//   var listFile = fs.readFile(list, 'utf8', function(err, data){
-//     var sitesArray = data.split('\n');
-//     return sitesArray;
-//   });
-// };
-
 exports.readListOfUrls = function(cb){
   var data = "";
   fs.readFile(this.paths.list, function(err, buffer) {
@@ -68,7 +60,6 @@ exports.readListOfUrls = function(cb){
 
 // Check whether URL is already in sites.txt array
 exports.isUrlInList = function(url, cb){
-  //working on
   this.readListOfUrls(function(listArr) {
     if(listArr.indexOf(url) === -1) {
       cb(false);
@@ -104,7 +95,6 @@ exports.isUrlArchived = function(url, cb){
 //Archive the target URL.
 exports.downloadUrls = function(urlList){
   var fixturePath = this.paths.archivedSites + "/";
-  // var urlName = fixturePath.split(".")[1];
   for(var i = 0; i < urlList.length; i++){
     fs.writeFile(fixturePath + urlList[i]);
   }
